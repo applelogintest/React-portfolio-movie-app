@@ -3,6 +3,7 @@
   --main-text-color: white;
   --style-border: 1px solid white;
   --box-width: 100%;
+  --section-width: 90%;
 }
 
 body {
