@@ -1,0 +1,30 @@
+.Movie__header {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: var(--box-width);
+  background-color: #1f2023;
+}
+
+.Movie__nav {
+  display: flex;
+  justify-content: space-between;
+  width: var(--section-width);
+  height: 70px;
+}
+
+.nav__items {
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav__items li {
+  float: left;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.fa-search {
+  margin-right: 10px;
+}
