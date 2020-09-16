@@ -23,6 +23,6 @@
 ### css 파일 분리
 
 ### state의 값 안 받아지는것 해결
-  const { movies } = this.state; 에서  { movise }는 state에 접근하여 movies가 존재 해야 값이 받아짐
+       const { movies } = this.state; 에서  { movise }는 state에 접근하여 movies가 존재 해야 값이 받아짐
   
 ### 최상위 컴포넌트에서 배열로 state 전달시 key값도 같이 전달해야 되는데 해결방안 생각중 
