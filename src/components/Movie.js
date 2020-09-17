@@ -4,12 +4,12 @@ import MovieSlider from './MovieSlider';
 import MovieList from './MovieList';
 import Footer from './Footer';
 
-function Movie({ movies, key }) {
+function Movie({ movies, bg }) {
   return (
     <Fragment>
       <Header></Header>
-      <MovieSlider></MovieSlider>
-      <MovieList movies={movies} key={key}></MovieList>
+      <MovieSlider movies={movies} bg={bg}></MovieSlider>
+      <MovieList movies={movies}></MovieList>
       <Footer></Footer>
     </Fragment>
   );
