@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   _renderMovies = () => {
-    return <Movie movies={this.state.movies} key={this.state.movies}></Movie>;
+    return <Movie movies={this.state.movies} bg={this.state.bg}></Movie>;
   };
 
   _getMovies = async () => {
@@ -31,8 +31,19 @@ class App extends Component {
     const downloadCountMovies = await downloadPromise;
     const likeCountMovies = await likeCountPromise;
 
+    console.log(ratingMovies);
+
     this.setState({
-      movies: [ratingMovies, downloadCountMovies, likeCountMovies],
+      movies: {
+        rating: ratingMovies,
+        download: downloadCountMovies,
+        like: likeCountMovies,
+      },
+      bg: {
+        rating: ratingMovies[0].background_image,
+        download: downloadCountMovies[0].background_image,
+        like: likeCountMovies[0].background_image,
+      },
     });
   };
 
