@@ -11,12 +11,13 @@
   display: flex;
   align-items: center;
   width: 30px;
-  height: 185px;
+  height: 90%;
   opacity: 0.6;
 }
 
 .Movie__box__arrow:hover {
   background-color: rgb(34, 36, 37);
+  opacity: 0.8;
 }
 
 .Movie__box__arrow.right {
@@ -54,7 +55,6 @@
 
 .Movie__box__poster {
   width: 250px;
-  height: 130px;
   margin-top: 10px;
 }
 
