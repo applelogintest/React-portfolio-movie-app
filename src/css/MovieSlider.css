@@ -1,10 +1,16 @@
-.Movie__slider {
+.Movie__slider__container {
   display: flex;
   align-items: center;
   width: var(--box-width);
 }
 
-.Movie__slider__container {
+.Movie__slider__slides {
+  display: flex;
+  position: relative;
+  transition: 0.4s ease-in;
+}
+
+.Movie__slider__slide {
   display: flex;
   width: 100%;
   flex-shrink: 0;
@@ -12,26 +18,26 @@
   background-size: 100% 100%;
 }
 
-.Movie__slider i {
+.Movie__slider__container i {
   opacity: 0.4;
 }
 
-.Movie__slider .fa-chevron-right {
+.Movie__slider__container .fa-chevron-right {
   position: absolute;
   right: 20px;
 }
 
-.Movie__slider .fa-chevron-left {
+.Movie__slider__container .fa-chevron-left {
   position: absolute;
   left: 20px;
 }
 
-.Movie__slider > i:hover {
+.Movie__slider__container > i:hover {
   cursor: pointer;
   opacity: 0.9;
 }
 
-.Movie__slider .fa-list {
+.Movie__slider__container .fa-list {
   margin-right: 8px;
 }
 
