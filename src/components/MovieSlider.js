@@ -36,22 +36,12 @@ function MovieSliderItem({ movies }) {
   );
 }
 
-function getMovieSliderBg(urlStr) {
-  const style = {
-    background: `url('${urlStr}'),
-    no-repeat linear-gradient(to bottom, white, rgb(20, 21, 23, 0.4))`,
-    backgroundSize: '100% 100%',
-  };
-
-  return style;
-}
-
 function MovieSlider({ movies, bg }) {
   const result = [];
   for (let key in movies) {
     result.push(
-      <section
-        className="Movie__slider__container"
+      <div
+        className="Movie__slider__slide"
         style={getMovieSliderBg(bg[key])}
         key={key}
       >
@@ -63,17 +53,55 @@ function MovieSlider({ movies, bg }) {
             목록 보기
           </button>
         </article>
-      </section>
+      </div>
     );
   }
 
   return (
-    <div className="Movie__slider">
+    <div
+      className="Movie__slider__container"
+      onClick={(event) => movieSliderClick(event)}
+    >
+      <section className="Movie__slider__slides">{result}</section>
       <i className="fas fa-chevron-left fa-3x" />
-      {result}
-      <i className="fas fa-chevron-right fa-3x"></i>
+      <i className="fas fa-chevron-right fa-3x" />
     </div>
   );
+}
+
+function getMovieSliderBg(urlStr) {
+  const style = {
+    background: `url('${urlStr}'),
+    no-repeat linear-gradient(to bottom, white, rgb(20, 21, 23, 0.4))`,
+    backgroundSize: '100% 100%',
+  };
+
+  return style;
+}
+
+function movieSliderClick(event) {
+  const target = event.target.className;
+
+  switch (target) {
+    case 'fas fa-chevron-left fa-3x':
+    case 'fas fa-chevron-right fa-3x':
+      arrow(target);
+      break;
+    default:
+      break;
+  }
+}
+
+function arrow(direction) {
+  const regExp = /.fa-chevron-left/;
+  const movieSliders = document.querySelector('.Movie__slider__slides');
+
+  if (regExp.test(direction)) {
+    console.log('left');
+  } else {
+    console.log('right');
+    movieSliders.style.transform = 'translateX(-200%)';
+  }
 }
 
 export default MovieSlider;
