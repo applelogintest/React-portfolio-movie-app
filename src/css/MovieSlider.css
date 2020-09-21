@@ -1,21 +1,18 @@
 .Movie__slider__container {
   display: flex;
   align-items: center;
-  width: var(--box-width);
 }
 
-.Movie__slider__slides {
-  display: flex;
-  position: relative;
-  transition: 0.4s ease-in;
-}
-
-.Movie__slider__slide {
-  display: flex;
+.Movie__slider {
   width: 100%;
-  flex-shrink: 0;
   background-blend-mode: multiply;
-  background-size: 100% 100%;
+
+  /* transition: opacity 0.5s ease-in 0s; */
+}
+
+.fade-in {
+  animation-duration: 2s;
+  animation-name: fade-in;
 }
 
 .Movie__slider__container i {
@@ -74,4 +71,14 @@
   cursor: pointer;
   background-color: white;
   color: black;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
