@@ -13,6 +13,7 @@
   width: 30px;
   height: 90%;
   opacity: 0.6;
+  top: 10px;
 }
 
 .Movie__box__arrow:hover {
@@ -39,8 +40,11 @@
   font-weight: bold;
 }
 
+.Movie__box__slide {
+}
 .Movie__box__items {
   display: flex;
+  transition: 0.5s ease-in;
 }
 
 .Movie__box__item {
