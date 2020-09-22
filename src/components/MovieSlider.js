@@ -37,7 +37,10 @@ function MovieSlider({ movies, bg }) {
       className="Movie__slider__container"
       onClick={(event) => movieSliderClick(event, movies, bg)}
     >
-      <section className="Movie__slider" style={getMovieSliderStyle(bg.rating)}>
+      <section
+        className="Movie__slider fade-in"
+        style={getMovieSliderStyle(bg.rating)}
+      >
         <article className="Movie__sliderItem">
           <h1 className="Movie__recommend__title">
             {getMovieSliderTitle('rating')}
@@ -110,6 +113,8 @@ function chageSlider(bgArr, movies, direction) {
   index = getIndex(currentIndex, bgArr.length, direction);
 
   const stlye = getMovieSliderStyle(bgArr[index]);
+
+  movieSlider.classList.remove('fade-in');
   movieSlider.style.background = `${stlye.background}`;
   movieSlider.style.backgroundSize = `${stlye.backgroundSize}`;
   sliderTitle.textContent = getMovieSliderTitle(movieKeys[index]);
@@ -118,6 +123,7 @@ function chageSlider(bgArr, movies, direction) {
     `${getMovieSliderItem(
       movieObj[index]
     )} 등 <br /> 지금 가장 많이 보는 작품! `;
+  void movieSlider.offsetWidth;
 
   movieSlider.classList.add('fade-in');
 }
