@@ -20,21 +20,71 @@ function MovieBoxTitle({ title }) {
   return <span className="Movie__box__title">{result}</span>;
 }
 
+function clickListArrow(direction) {
+  const moveListPX = 1000;
+
+  const items = document.querySelector('.Movie__box__items');
+  const boxArrowLeft = document.querySelector('.Movie__box__arrow.left');
+  const boxArrowRight = document.querySelector('.Movie__box__arrow.right');
+  const listWidth = items.clientWidth;
+
+  let translateX = items.style.transform;
+
+  translateX = parseInt(translateX.replace(/[^0-9]/g, ''));
+  boxArrowLeft.style.visibility = 'visible';
+
+  if (direction === 'right') {
+    const translateXRight = translateX + moveListPX;
+    items.style.transform =
+      translateX > 0
+        ? `translateX(-${translateXRight}px)`
+        : 'translateX(-1000px)';
+
+    if (translateXRight >= listWidth - moveListPX) {
+      boxArrowRight.style.visibility = 'hidden';
+    } else {
+      boxArrowLeft.style.visibility = 'visible';
+    }
+  } else {
+    const translateXLeft = translateX - moveListPX;
+    items.style.transform = `translateX(-${translateXLeft}px)`;
+
+    if (translateXLeft === 0) {
+      boxArrowLeft.style.visibility = 'hidden';
+    } else {
+      boxArrowRight.style.visibility = 'visible';
+    }
+  }
+}
+
 function MovieBoxhtml({ movies }) {
   const result = [];
+  let movieListWidth = 0;
   for (let key in movies) {
+    movieListWidth = 250 * movies[key].length;
     result.push(
       <section className="Movie__box" key={key}>
-        <div className="Movie__box__arrow left">
-          <i className="fas fa-chevron-left fa-3x"></i>
-        </div>
         <article className="Movie__box__list">
           <MovieBoxTitle title={key}></MovieBoxTitle>
-          <div className="Movie__box__items">
-            <MovieListHtml movieList={movies[key]}></MovieListHtml>
+          <div className="Movie__box__slide">
+            <div
+              className="Movie__box__items"
+              style={{ width: `${movieListWidth}px` }}
+            >
+              <MovieListHtml movieList={movies[key]}></MovieListHtml>
+            </div>
           </div>
         </article>
-        <div className="Movie__box__arrow right">
+        <div
+          className="Movie__box__arrow left"
+          onClick={() => clickListArrow('left')}
+        >
+          <i className="fas fa-chevron-left fa-3x"></i>
+        </div>
+        <div
+          className="Movie__box__arrow right"
+          onClick={() => clickListArrow('right')}
+        >
           <i className="fas fa-chevron-right fa-3x"></i>
         </div>
       </section>
