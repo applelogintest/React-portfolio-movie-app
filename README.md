@@ -27,8 +27,6 @@
 - state의 값 안 받아지는것 해결
   const { movies } = this.state; 에서 { movise }는 state에 접근하여 movies가 존재 해야 값이 받아짐
 
-### 최상위 컴포넌트에서 배열로 state 전달시 key값도 같이 전달해야 되는데 해결방안 생각중
-
 ---
 
 # 9/17
@@ -95,3 +93,32 @@
 
 - html 구조 변경으로 인하여 해당 클래스의 CSS 삭제
 - animation 추가
+
+---
+
+# 9/22
+
+## JavaScript
+
+- 슬라이더 animation 해결
+  animation을 CSS에서 등록후 슬라이더에게 클래스를 부여
+  하지만 클래스를 부여하는 순간 animation이 한번동작하고 다시 반복이 안됨
+  그래서 해당 클래스를 삭제후 void movieSlider.offsetWidth; 실행시켜
+  브라우저에게 re-flow를 하게 만든뒤 다시 animation 클래스를 추가시켜 동작시켰다.
+
+  re-flow는 모든 엘리먼트의 위치 길이 등을 계산하여 다시 렌더링 시키는것이기 때문에
+  비효율적이다.
+
+- 리스트 슬라이더 구현 (구현중)
+  3개의 리스트를 각각 따로 움직여야 하는데 모든 리스트가 하나의 리스트를 작동시키는 문제가 있음
+
+## HTML
+
+- MovieList에서 슬라이더의 구조 변경
+
+## CSS
+
+- MovieSlider animation 추가
+- MovieList 슬라이더의 html 구조 변경에 따른 CSS 변경
+
+---
