@@ -20,13 +20,15 @@ function MovieBoxTitle({ title }) {
   return <span className="Movie__box__title">{result}</span>;
 }
 
-function clickListArrow(direction) {
-  const moveListPX = 1000;
+function clickListArrow(e, direction) {
+  const moveListPX = 1020;
+  const targetList = e.currentTarget.parentNode.firstChild;
+  const targetArrow = e.currentTarget.parentNode;
 
-  const items = document.querySelector('.Movie__box__items');
-  const boxArrowLeft = document.querySelector('.Movie__box__arrow.left');
-  const boxArrowRight = document.querySelector('.Movie__box__arrow.right');
-  const listWidth = items.clientWidth;
+  const items = targetList.querySelector('.Movie__box__items');
+  const boxArrowLeft = targetArrow.querySelector('.Movie__box__arrow.left');
+  const boxArrowRight = targetArrow.querySelector('.Movie__box__arrow.right');
+  const listWidth = targetList.querySelector('.Movie__box__items').clientWidth;
 
   let translateX = items.style.transform;
 
@@ -38,7 +40,7 @@ function clickListArrow(direction) {
     items.style.transform =
       translateX > 0
         ? `translateX(-${translateXRight}px)`
-        : 'translateX(-1000px)';
+        : 'translateX(-1020px)';
 
     if (translateXRight >= listWidth - moveListPX) {
       boxArrowRight.style.visibility = 'hidden';
@@ -61,7 +63,7 @@ function MovieBoxhtml({ movies }) {
   const result = [];
   let movieListWidth = 0;
   for (let key in movies) {
-    movieListWidth = 250 * movies[key].length;
+    movieListWidth = 253 * movies[key].length;
     result.push(
       <section className="Movie__box" key={key}>
         <article className="Movie__box__list">
@@ -77,13 +79,13 @@ function MovieBoxhtml({ movies }) {
         </article>
         <div
           className="Movie__box__arrow left"
-          onClick={() => clickListArrow('left')}
+          onClick={(e) => clickListArrow(e, 'left')}
         >
           <i className="fas fa-chevron-left fa-3x"></i>
         </div>
         <div
           className="Movie__box__arrow right"
-          onClick={() => clickListArrow('right')}
+          onClick={(e) => clickListArrow(e, 'right')}
         >
           <i className="fas fa-chevron-right fa-3x"></i>
         </div>
