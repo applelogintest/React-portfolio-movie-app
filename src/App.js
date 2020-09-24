@@ -19,7 +19,15 @@ class App extends Component {
   }
 
   _renderMovies = () => {
-    return <Movie movies={this.state.movies} bg={this.state.bg}></Movie>;
+    return (
+      <Movie
+        movies={this.state.movies}
+        bg={this.state.bg}
+        searchMovies={this.state.searchMovies}
+        movieCount={this.state.movieCount}
+        handleInputSearchChange={this._handleInputSearchChange}
+      ></Movie>
+    );
   };
 
   _getMovies = async () => {
@@ -30,8 +38,6 @@ class App extends Component {
     const ratingMovies = await ratingPromise;
     const downloadCountMovies = await downloadPromise;
     const likeCountMovies = await likeCountPromise;
-
-    console.log(ratingMovies);
 
     this.setState({
       movies: {
@@ -44,6 +50,7 @@ class App extends Component {
         download: downloadCountMovies[0].background_image,
         like: likeCountMovies[0].background_image,
       },
+      movieCount: undefined,
     });
   };
 
@@ -54,6 +61,31 @@ class App extends Component {
         .then((json) => resolve(json.data.movies))
         .catch((err) => console.log(err));
     });
+  };
+
+  _getMovieSearch = (value) => {
+    return fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${value}`)
+      .then((response) => response.json())
+      .then((json) => {
+        return {
+          searchMovies: json.data.movies,
+          movieCount: json.data.movie_count,
+        };
+      })
+      .catch((err) => console.log(err));
+  };
+
+  _handleInputSearchChange = async (value) => {
+    if (value) {
+      const searchMoviesObj = await this._getMovieSearch(value);
+
+      this.setState({
+        searchMovies: searchMoviesObj.searchMovies,
+        movieCount: searchMoviesObj.movieCount,
+      });
+    } else {
+      this._getMovies();
+    }
   };
 }
 
