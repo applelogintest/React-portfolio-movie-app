@@ -1,15 +1,28 @@
 import React, { Fragment } from 'react';
 import Header from './Header';
+import SearchMovie from './SearchMovie';
 import MovieSlider from './MovieSlider';
 import MovieList from './MovieList';
 import Footer from './Footer';
 
-function Movie({ movies, bg }) {
+function Movie({
+  movies,
+  bg,
+  handleInputSearchChange,
+  searchMovies,
+  movieCount,
+}) {
   return (
     <Fragment>
-      <Header></Header>
-      <MovieSlider movies={movies} bg={bg}></MovieSlider>
-      <MovieList movies={movies}></MovieList>
+      <Header handleInputSearchChange={handleInputSearchChange}></Header>
+      {movieCount !== undefined ? (
+        <SearchMovie searchMovies={searchMovies}></SearchMovie>
+      ) : (
+        <Fragment>
+          <MovieSlider movies={movies} bg={bg}></MovieSlider>
+          <MovieList movies={movies}></MovieList>
+        </Fragment>
+      )}
       <Footer></Footer>
     </Fragment>
   );
