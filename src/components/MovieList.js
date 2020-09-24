@@ -8,16 +8,89 @@ function MovieBoxTitle({ title }) {
       result = '평점순 인기 영화 리스트';
       break;
     case 'download':
-      result = '다운로드 회수 높은 영화 리스트';
+      result = '다운로드 횟수 높은 영화 리스트';
       break;
     case 'like':
-      result = '관객이 좋은 평가를 준 영화 리스트';
+      result = '좋아요가 많은 영화 리스트';
       break;
     default:
       return;
   }
 
   return <span className="Movie__box__title">{result}</span>;
+}
+
+function MovieBoxhtml({ movies }) {
+  const result = [];
+  let movieListWidth = 0;
+  for (let key in movies) {
+    movieListWidth = 253 * movies[key].length;
+    result.push(
+      <section className="Movie__box" key={key}>
+        <article className="Movie__box__list">
+          <MovieBoxTitle title={key}></MovieBoxTitle>
+          <div className="Movie__box__slide">
+            <div
+              className="Movie__box__items"
+              style={{ width: `${movieListWidth}px` }}
+            >
+              <MovieListHtml movieList={movies[key]}></MovieListHtml>
+            </div>
+          </div>
+        </article>
+        <div
+          className="Movie__box__arrow left"
+          onClick={(e) => clickListArrow(e, 'left')}
+        >
+          <i className="fas fa-chevron-left fa-3x"></i>
+        </div>
+        <div
+          className="Movie__box__arrow right"
+          onClick={(e) => clickListArrow(e, 'right')}
+        >
+          <i className="fas fa-chevron-right fa-3x"></i>
+        </div>
+      </section>
+    );
+  }
+
+  return result;
+}
+function MovieListHtml({ movieList }) {
+  const result = movieList.map((movie) => {
+    return (
+      <div
+        className="Movie__box__item"
+        key={movie.id}
+        onMouseEnter={(e) => zoomIn(e)}
+        onMouseLeave={(e) => zoomOut(e)}
+      >
+        <img
+          className="Movie__box__poster"
+          src={movie.medium_cover_image}
+          alt={movie.title}
+        />
+        <div className="Movie__box__detail">
+          <span>출시년도 : {movie.year} 년</span>
+          <span>평점 : {movie.rating}</span>
+          <span>런타임 : {movie.runtime} 분</span>
+          <a
+            href={`https://www.youtube.com/watch?v=` + movie.yt_trailer_code}
+            target="_blink"
+          >
+            <i className="fas fa-video fa-2x"></i>
+          </a>
+        </div>
+        <span className="Movie__box__movie">{movie.title}</span>
+      </div>
+    );
+  });
+
+  return result;
+}
+
+function MovieList({ movies }) {
+  return <MovieBoxhtml movies={movies}></MovieBoxhtml>;
 }
 
 function clickListArrow(e, direction) {
@@ -59,62 +132,28 @@ function clickListArrow(e, direction) {
   }
 }
 
-function MovieBoxhtml({ movies }) {
-  const result = [];
-  let movieListWidth = 0;
-  for (let key in movies) {
-    movieListWidth = 253 * movies[key].length;
-    result.push(
-      <section className="Movie__box" key={key}>
-        <article className="Movie__box__list">
-          <MovieBoxTitle title={key}></MovieBoxTitle>
-          <div className="Movie__box__slide">
-            <div
-              className="Movie__box__items"
-              style={{ width: `${movieListWidth}px` }}
-            >
-              <MovieListHtml movieList={movies[key]}></MovieListHtml>
-            </div>
-          </div>
-        </article>
-        <div
-          className="Movie__box__arrow left"
-          onClick={(e) => clickListArrow(e, 'left')}
-        >
-          <i className="fas fa-chevron-left fa-3x"></i>
-        </div>
-        <div
-          className="Movie__box__arrow right"
-          onClick={(e) => clickListArrow(e, 'right')}
-        >
-          <i className="fas fa-chevron-right fa-3x"></i>
-        </div>
-      </section>
-    );
-  }
+function zoomIn(e) {
+  const target = e.currentTarget;
 
-  return result;
+  const moviePoster = target.querySelector('.Movie__box__poster');
+  const movieDetail = target.querySelector('.Movie__box__detail');
+
+  moviePoster.style.transform = 'scale(1.05)';
+  moviePoster.style.opacity = '0.7';
+
+  movieDetail.style.visibility = 'visible';
 }
 
-function MovieListHtml({ movieList }) {
-  const result = movieList.map((movie) => {
-    return (
-      <div className="Movie__box__item" key={movie.id}>
-        <img
-          className="Movie__box__poster"
-          src={movie.medium_cover_image}
-          alt={movie.title}
-        />
-        <span className="Movie__box__movie">{movie.title}</span>
-      </div>
-    );
-  });
+function zoomOut(e) {
+  const target = e.currentTarget;
 
-  return result;
-}
+  const moviePoster = target.querySelector('.Movie__box__poster');
+  const movieDetail = target.querySelector('.Movie__box__detail');
 
-function MovieList({ movies }) {
-  return <MovieBoxhtml movies={movies}></MovieBoxhtml>;
+  moviePoster.style.transform = 'scale(1)';
+  moviePoster.style.opacity = '1';
+
+  movieDetail.style.visibility = 'hidden';
 }
 
 export default MovieList;
