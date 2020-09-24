@@ -26,6 +26,17 @@
   cursor: pointer;
 }
 
+.nav__movie__input {
+  transition: 0.2s ease-in;
+  visibility: hidden;
+  width: 0px;
+}
+
 .fa-search {
+  margin-left: 10px;
   margin-right: 10px;
+}
+
+.fa-search > span {
+  margin-left: 10px;
 }
