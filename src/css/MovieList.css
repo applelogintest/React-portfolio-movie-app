@@ -51,12 +51,6 @@
   flex-direction: column;
   position: relative;
   margin-right: 3px;
-  transition: 0.3s ease-in;
-}
-
-.Movie__box__item:hover {
-  transform: scale(1.05);
-  opacity: 0.6;
 }
 
 .Movie__box__item:last-child {
@@ -66,9 +60,33 @@
 .Movie__box__poster {
   width: 250px;
   margin-top: 10px;
+  transition: 0.2s ease-in;
 }
 
 .Movie__box__movie {
   padding: 5px;
-  font-size: 16px;
+}
+
+.Movie__box__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  visibility: hidden;
+  top: 30%;
+  left: 20%;
+  font-size: 30px;
+}
+
+.Movie__box__detail span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.Movie__box__detail a {
+  text-decoration: none;
+  color: white;
 }
