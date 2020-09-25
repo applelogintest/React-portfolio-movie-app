@@ -11,12 +11,16 @@ function Movie({
   handleInputSearchChange,
   searchMovies,
   movieCount,
+  keyword,
 }) {
   return (
     <Fragment>
       <Header handleInputSearchChange={handleInputSearchChange}></Header>
       {movieCount !== undefined ? (
-        <SearchMovie searchMovies={searchMovies}></SearchMovie>
+        <SearchMovie
+          searchMovies={searchMovies}
+          keyword={keyword}
+        ></SearchMovie>
       ) : (
         <Fragment>
           <MovieSlider movies={movies} bg={bg}></MovieSlider>
