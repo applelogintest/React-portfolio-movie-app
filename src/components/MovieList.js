@@ -17,7 +17,7 @@ function MovieBoxTitle({ title }) {
       return;
   }
 
-  return <span className="Movie__box__title">{result}</span>;
+  return <span className="Movie__list__title">{result}</span>;
 }
 
 function MovieBoxhtml({ movies }) {
@@ -81,7 +81,7 @@ function MovieListHtml({ movieList }) {
             <i className="fas fa-video fa-2x"></i>
           </a>
         </div>
-        <span className="Movie__box__movie">{movie.title}</span>
+        <span className="Movie__box__title">{movie.title}</span>
       </div>
     );
   });
@@ -139,7 +139,7 @@ function zoomIn(e) {
   const movieDetail = target.querySelector('.Movie__box__detail');
 
   moviePoster.style.transform = 'scale(1.05)';
-  moviePoster.style.opacity = '0.7';
+  moviePoster.style.opacity = '0.5';
 
   movieDetail.style.visibility = 'visible';
 }
