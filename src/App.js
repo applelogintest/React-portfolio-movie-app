@@ -9,7 +9,7 @@ class App extends Component {
     const { movies } = this.state;
     return (
       <div className={movies ? 'App' : 'App--loading'}>
-        {movies ? this._renderMovies() : 'loading'}
+        {movies ? this._renderMovies() : this._loadingPage()}
       </div>
     );
   }
@@ -17,6 +17,15 @@ class App extends Component {
   componentDidMount() {
     this._getMovies();
   }
+
+  _loadingPage = () => {
+    return (
+      <section className="Movie__loading">
+        <i className="fas fa-spinner fa-3x"></i>
+        <h2>loading</h2>
+      </section>
+    );
+  };
 
   _renderMovies = () => {
     return (
@@ -26,6 +35,7 @@ class App extends Component {
         searchMovies={this.state.searchMovies}
         movieCount={this.state.movieCount}
         handleInputSearchChange={this._handleInputSearchChange}
+        keyword={this.state.keyword}
       ></Movie>
     );
   };
@@ -35,9 +45,11 @@ class App extends Component {
     const downloadPromise = this._getMoviePromise('download_count');
     const likeCountPromise = this._getMoviePromise('like_count');
 
-    const ratingMovies = await ratingPromise;
-    const downloadCountMovies = await downloadPromise;
-    const likeCountMovies = await likeCountPromise;
+    const [
+      ratingMovies,
+      downloadCountMovies,
+      likeCountMovies,
+    ] = await Promise.all([ratingPromise, downloadPromise, likeCountPromise]);
 
     this.setState({
       movies: {
@@ -59,12 +71,12 @@ class App extends Component {
       fetch(`https://yts.mx/api/v2/list_movies.json?sort_by=${search}`)
         .then((response) => response.json())
         .then((json) => resolve(json.data.movies))
-        .catch((err) => console.log(err));
+        .catch((err) => reject(console.log(err)));
     });
   };
 
-  _getMovieSearch = (value) => {
-    return fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${value}`)
+  _getSearchMovie = (keyword) => {
+    return fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${keyword}`)
       .then((response) => response.json())
       .then((json) => {
         return {
@@ -75,13 +87,16 @@ class App extends Component {
       .catch((err) => console.log(err));
   };
 
-  _handleInputSearchChange = async (value) => {
-    if (value) {
-      const searchMoviesObj = await this._getMovieSearch(value);
+  _handleInputSearchChange = async (keyword) => {
+    const pattern = /\s/g;
+    if (!pattern.test(keyword) && keyword) {
+      const searchMoviesObj = await this._getSearchMovie(keyword);
 
+      console.log(searchMoviesObj);
       this.setState({
         searchMovies: searchMoviesObj.searchMovies,
         movieCount: searchMoviesObj.movieCount,
+        keyword,
       });
     } else {
       this._getMovies();
