@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   width: 30px;
-  height: 90%;
+  height: 415px;
   opacity: 0.6;
   top: 10px;
 }
@@ -35,7 +35,7 @@
   width: var(--section-width);
 }
 
-.Movie__box__title {
+.Movie__list__title {
   padding: 5px;
   font-size: 18px;
   font-weight: bold;
@@ -63,8 +63,9 @@
   transition: 0.2s ease-in;
 }
 
-.Movie__box__movie {
+.Movie__box__title {
   padding: 5px;
+  font-weight: bold;
 }
 
 .Movie__box__detail {
