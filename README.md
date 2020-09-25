@@ -137,7 +137,9 @@
 
 - 영화 리스트 hover시 스케일 크기 증가 추가
 
-### 영화 리스트의 포스터 hover시 상세내용 추가 해야됨
+## TODO
+
+- 영화 리스트의 포스터 hover시 상세내용 추가 해야됨
 
 ---
 
@@ -161,6 +163,35 @@
 - 검색 input 태그 추가
 - SearchMovie CSS 파일 추가
 
-### 영화 검색 기능 데이터를 받고 이미지 출력하기 까지 성공 HTML CSS 구현해야됨
+## TODO
+
+- 영화 검색 기능 데이터를 받고 이미지 출력하기 까지 성공 HTML CSS 구현해야됨
+
+---
+
+# 9/25
+
+## JavaScript
+
+- 영화 검색 기능 개선
+  1. 사용자가 입력을 다 하고나서 데이터를 받아오도록 함
+  2. 빈공백 정규식으로 처리
+- 영화 검색 마우스 이벤트 추가
+- main loading page 구현
+
+## HTML
+
+- SearchMovie detail 추가
+
+## CSS
+
+- app--loading animation 추가
+- SearchMovie detail 관련 css 추가
+- SearchMovie grid layout css 추가
+
+## TODO
+
+- 영화 검색시 데이터 없는 layout 만들어야됨
+- 영화 검색 데이터를 부르는 중에 loading 페이지 구현 해야됨
 
 ---
