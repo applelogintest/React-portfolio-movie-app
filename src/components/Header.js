@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Header.css';
 
 function Header({ handleInputSearchChange }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      handleInputSearchChange(searchTerm);
+    }, 300);
+
+    return () => clearTimeout(delayDebounce);
+  }, [handleInputSearchChange, searchTerm]);
+
   return (
     <header className="Movie__header">
       <nav className="Movie__nav">
@@ -16,7 +25,7 @@ function Header({ handleInputSearchChange }) {
               type="text"
               placeholder="제목 검색"
               visibility="hidden"
-              onChange={(e) => searchOnChage(e, handleInputSearchChange)}
+              onKeyUp={(e) => setSearchTerm(e.target.value)}
             ></input>
             <i className="fas fa-search " onClick={clickSearch}>
               <span>검색</span>
@@ -27,12 +36,6 @@ function Header({ handleInputSearchChange }) {
       </nav>
     </header>
   );
-}
-
-function searchOnChage(e, handleInputSearchChange) {
-  const value = e.target.value;
-
-  handleInputSearchChange(value);
 }
 
 function clickSearch() {
