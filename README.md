@@ -195,3 +195,28 @@
 - 영화 검색 데이터를 부르는 중에 loading 페이지 구현 해야됨
 
 ---
+
+# 9/28
+
+## JavaScript
+
+- HOME 버튼 누를시 처음 화면으로 이동 추가
+- React를 github로 배포하기 위해 gh-pages 추가
+
+## HTML
+
+- 로그인, 탐색 목록 삭제
+- Footer 내용 추가
+
+## CSS
+
+- 영화 검색시 데이터 없는 layout CSS 추가
+- Footer CSS 추가
+
+## TODO
+
+- HOME 이동시 input value값 초기화 시켜야됨
+- 영화 검색시 로딩 페이지 보여주기 추가해야됨
+  (두가지 다 오늘 시도해보았으나 제대로된 해결책 마련 못함)
+
+---
