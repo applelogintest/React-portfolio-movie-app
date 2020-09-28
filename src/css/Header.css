@@ -12,6 +12,7 @@
   justify-content: space-between;
   width: var(--section-width);
   height: 70px;
+  font-weight: bold;
 }
 
 .nav__items {
