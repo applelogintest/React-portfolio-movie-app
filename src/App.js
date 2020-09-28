@@ -90,7 +90,7 @@ class App extends Component {
 
   _handleInputSearchChange = async (keyword) => {
     const pattern = /\s/g;
-    console.log(keyword);
+
     if (!pattern.test(keyword) && keyword) {
       const searchMoviesObj = await this._getSearchMovie(keyword);
 
