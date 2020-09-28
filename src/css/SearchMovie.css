@@ -7,9 +7,11 @@
   min-height: 650px;
 }
 
-.Search__movie__container h2 {
+.Search__keyword {
   grid-column-start: 1;
   grid-column-end: 6;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .Search__movie__item {
@@ -19,13 +21,20 @@
 }
 
 .Search__movie__title {
+  text-align: center;
+  margin-top: 10px;
   padding: 0 30px;
   font-weight: bold;
 }
 .Search__movie__notFond {
   margin-top: 70px;
   min-height: 650px;
-  padding: 0 30px;
+  padding: 20px 30px;
+}
+
+.Search__movie__notFond .notFound__text {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 30px;
 }
 
 .Search__movie__item {
@@ -47,7 +56,7 @@
   font-weight: bold;
   visibility: hidden;
   top: 30%;
-  left: 23%;
+  left: 24%;
   font-size: 30px;
 }
 
