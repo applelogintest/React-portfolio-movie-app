@@ -36,7 +36,7 @@ function SearchMovieItem({ movies }) {
 function SearchMovieHtml({ movies, keyword }) {
   return (
     <section className="Search__movie__container">
-      <h2>"{keyword}"의 검색 결과</h2>
+      <span className="Search__keyword">"{keyword}"의 검색 결과</span>
       <SearchMovieItem movies={movies}></SearchMovieItem>
     </section>
   );
@@ -45,8 +45,8 @@ function SearchMovieHtml({ movies, keyword }) {
 function NotFoundMovieHtml({ keyword }) {
   return (
     <section className="Search__movie__notFond">
-      <h2>"{keyword}"의 검색 결과</h2>
-      <div>찾는 영화가 없어요</div>
+      <span className="Search__keyword">"{keyword}"의 검색 결과</span>
+      <h1 className="notFound__text">찾으시는 영화가 없어요</h1>
     </section>
   );
 }
