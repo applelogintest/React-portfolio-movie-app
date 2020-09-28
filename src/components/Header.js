@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Header.css';
 
-function Header({ handleInputSearchChange }) {
+function Header({ handleInputSearchChange, getMovies }) {
   const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
@@ -15,8 +15,9 @@ function Header({ handleInputSearchChange }) {
     <header className="Movie__header">
       <nav className="Movie__nav">
         <ul className="nav__items">
-          <li className="nav__item__home">홈</li>
-          <li className="nav__detail__search">탐색하기</li>
+          <li className="nav__item__home" onClick={() => clickHome(getMovies)}>
+            HOME
+          </li>
         </ul>
         <ul className="nav__items">
           <li className="nav__movie__search">
@@ -31,7 +32,6 @@ function Header({ handleInputSearchChange }) {
               <span>검색</span>
             </i>
           </li>
-          <li className="nav__login">로그인</li>
         </ul>
       </nav>
     </header>
@@ -50,6 +50,10 @@ function clickSearch() {
     input.style.width = '180px';
     input.style.visibility = 'visible';
   }
+}
+
+function clickHome(getMovies) {
+  getMovies();
 }
 
 export default Header;
