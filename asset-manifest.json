@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React-portfolio-movie-app/static/css/main.28db0c69.chunk.css",
+    "main.js": "/React-portfolio-movie-app/static/js/main.1ecb09c0.chunk.js",
+    "main.js.map": "/React-portfolio-movie-app/static/js/main.1ecb09c0.chunk.js.map",
+    "runtime-main.js": "/React-portfolio-movie-app/static/js/runtime-main.c767408c.js",
+    "runtime-main.js.map": "/React-portfolio-movie-app/static/js/runtime-main.c767408c.js.map",
+    "static/js/2.82ee2f15.chunk.js": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js",
+    "static/js/2.82ee2f15.chunk.js.map": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js.map",
+    "index.html": "/React-portfolio-movie-app/index.html",
+    "precache-manifest.dd5975eeee6a98a4edb6963347f44197.js": "/React-portfolio-movie-app/precache-manifest.dd5975eeee6a98a4edb6963347f44197.js",
+    "service-worker.js": "/React-portfolio-movie-app/service-worker.js",
+    "static/css/main.28db0c69.chunk.css.map": "/React-portfolio-movie-app/static/css/main.28db0c69.chunk.css.map",
+    "static/js/2.82ee2f15.chunk.js.LICENSE.txt": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c767408c.js",
+    "static/js/2.82ee2f15.chunk.js",
+    "static/css/main.28db0c69.chunk.css",
+    "static/js/main.1ecb09c0.chunk.js"
+  ]
+}
