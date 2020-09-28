@@ -35,6 +35,7 @@ class App extends Component {
         searchMovies={this.state.searchMovies}
         movieCount={this.state.movieCount}
         handleInputSearchChange={this._handleInputSearchChange}
+        getMovies={this._getMovies}
         keyword={this.state.keyword}
       ></Movie>
     );
@@ -89,10 +90,10 @@ class App extends Component {
 
   _handleInputSearchChange = async (keyword) => {
     const pattern = /\s/g;
+    console.log(keyword);
     if (!pattern.test(keyword) && keyword) {
       const searchMoviesObj = await this._getSearchMovie(keyword);
 
-      console.log(searchMoviesObj);
       this.setState({
         searchMovies: searchMoviesObj.searchMovies,
         movieCount: searchMoviesObj.movieCount,
