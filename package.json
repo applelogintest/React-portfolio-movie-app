@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +35,8 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.2"
-  }
+    "cross-env": "^7.0.2",
+    "gh-pages": "^3.1.0"
+  },
+  "homepage": "https://kimhm93.github.io/React-portfolio-movie-app"
 }
