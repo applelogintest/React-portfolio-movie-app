@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/React-portfolio-movie-app/static/css/main.3b84c1a4.chunk.css",
-    "main.js": "/React-portfolio-movie-app/static/js/main.f82dae8c.chunk.js",
-    "main.js.map": "/React-portfolio-movie-app/static/js/main.f82dae8c.chunk.js.map",
+    "main.js": "/React-portfolio-movie-app/static/js/main.4aa223c4.chunk.js",
+    "main.js.map": "/React-portfolio-movie-app/static/js/main.4aa223c4.chunk.js.map",
     "runtime-main.js": "/React-portfolio-movie-app/static/js/runtime-main.c767408c.js",
     "runtime-main.js.map": "/React-portfolio-movie-app/static/js/runtime-main.c767408c.js.map",
     "static/js/2.82ee2f15.chunk.js": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js",
     "static/js/2.82ee2f15.chunk.js.map": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js.map",
     "index.html": "/React-portfolio-movie-app/index.html",
-    "precache-manifest.cde1308adee2719e648c61f3313e7972.js": "/React-portfolio-movie-app/precache-manifest.cde1308adee2719e648c61f3313e7972.js",
+    "precache-manifest.1ac388e5e535daa9e7b5d775e13a5dc5.js": "/React-portfolio-movie-app/precache-manifest.1ac388e5e535daa9e7b5d775e13a5dc5.js",
     "service-worker.js": "/React-portfolio-movie-app/service-worker.js",
     "static/css/main.3b84c1a4.chunk.css.map": "/React-portfolio-movie-app/static/css/main.3b84c1a4.chunk.css.map",
     "static/js/2.82ee2f15.chunk.js.LICENSE.txt": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c767408c.js",
     "static/js/2.82ee2f15.chunk.js",
     "static/css/main.3b84c1a4.chunk.css",
-    "static/js/main.f82dae8c.chunk.js"
+    "static/js/main.4aa223c4.chunk.js"
   ]
 }
