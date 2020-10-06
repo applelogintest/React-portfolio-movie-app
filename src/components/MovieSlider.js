@@ -49,10 +49,10 @@ function MovieSlider({ movies, bg }) {
             {getMovieSliderItem(movies.rating)} 등 <br /> 지금 가장 많이 보는
             작품!
           </span>
-          <button className="Movie__list__btn">
+          {/* <button className="Movie__list__btn">
             <i className="fas fa-list"></i>
             목록 보기
-          </button>
+          </button> */}
         </article>
       </section>
       <i className="fas fa-chevron-left fa-3x" />

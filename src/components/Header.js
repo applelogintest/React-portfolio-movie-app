@@ -26,7 +26,7 @@ function Header({ handleInputSearchChange, getMovies }) {
               type="text"
               placeholder="제목 검색"
               visibility="hidden"
-              onKeyUp={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
             <i className="fas fa-search " onClick={clickSearch}>
               <span>검색</span>
