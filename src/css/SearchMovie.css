@@ -42,7 +42,6 @@
 }
 
 .Search__movie__poster {
-  width: 250px;
   margin-top: 10px;
   transition: 0.2s ease-in;
 }
@@ -55,8 +54,7 @@
   color: white;
   font-weight: bold;
   visibility: hidden;
-  top: 30%;
-  left: 20%;
+  top: 25%;
   font-size: 30px;
 }
 
