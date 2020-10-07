@@ -1,36 +1,6 @@
 import React from 'react';
 import '../css/MovieSlider.css';
 
-function getMovieSliderTitle(type) {
-  let result = '';
-  switch (type) {
-    case 'rating':
-      result = '현재 평점이 가장 좋은 영화!';
-      break;
-    case 'download':
-      result = '가장 많이 다운로드수가 많은 영화!';
-      break;
-    case 'like':
-      result = '사람들이 좋아하는 명작 영화!';
-      break;
-    default:
-      return;
-  }
-
-  return result;
-}
-
-function getMovieSliderItem(movies) {
-  const title = movies
-    .slice(0, 2)
-    .map((movie) => {
-      return movie.title;
-    })
-    .join(', ');
-
-  return title;
-}
-
 function MovieSlider({ movies, bg }) {
   return (
     <div
@@ -123,6 +93,7 @@ function chageSlider(bgArr, movies, direction) {
     `${getMovieSliderItem(
       movieObj[index]
     )} 등 <br /> 지금 가장 많이 보는 작품! `;
+
   void movieSlider.offsetWidth;
 
   movieSlider.classList.add('fade-in');
@@ -145,6 +116,36 @@ function getBacgroundUrlStr(bgStr) {
     bgStr.lastIndexOf('"') - 5
   );
   return result;
+}
+
+function getMovieSliderTitle(type) {
+  let result = '';
+  switch (type) {
+    case 'rating':
+      result = '현재 평점이 가장 좋은 영화!';
+      break;
+    case 'download':
+      result = '가장 많이 다운로드수가 많은 영화!';
+      break;
+    case 'like':
+      result = '사람들이 좋아하는 명작 영화!';
+      break;
+    default:
+      return;
+  }
+
+  return result;
+}
+
+function getMovieSliderItem(movies) {
+  const title = movies
+    .slice(0, 2)
+    .map((movie) => {
+      return movie.title;
+    })
+    .join(', ');
+
+  return title;
 }
 
 export default MovieSlider;
