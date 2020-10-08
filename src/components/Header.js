@@ -3,6 +3,7 @@ import '../css/Header.css';
 
 function Header({ handleInputSearchChange, getMovies }) {
   const [searchTerm, setSearchTerm] = useState('');
+
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       handleInputSearchChange(searchTerm);
@@ -15,7 +16,10 @@ function Header({ handleInputSearchChange, getMovies }) {
     <header className="Movie__header">
       <nav className="Movie__nav">
         <ul className="nav__items">
-          <li className="nav__item__home" onClick={() => clickHome(getMovies)}>
+          <li
+            className="nav__item__home"
+            onClick={() => clickHome(getMovies, setSearchTerm)}
+          >
             HOME
           </li>
         </ul>
@@ -26,6 +30,7 @@ function Header({ handleInputSearchChange, getMovies }) {
               type="text"
               placeholder="제목 검색"
               visibility="hidden"
+              value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
             <i className="fas fa-search " onClick={clickSearch}>
@@ -52,7 +57,8 @@ function clickSearch() {
   }
 }
 
-function clickHome(getMovies) {
+function clickHome(getMovies, setSearchTerm) {
+  setSearchTerm('');
   getMovies();
 }
 
