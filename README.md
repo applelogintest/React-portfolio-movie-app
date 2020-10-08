@@ -221,3 +221,13 @@
 
 - 영화 검색화면에서 디테일 left 삭제
   flex로 가운데 정렬이 되어있어 필요가없음 오히려 left가 방해되었음
+
+---
+
+# 10/8
+
+## JavaScript
+
+- HOME 버튼 누를시 Header의 input value 값 초기화
+
+---
