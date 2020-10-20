@@ -11,7 +11,7 @@ function Footer() {
         <div className="Footer__Email">
           <span>Email</span>
           <a href="mailto:kimhm260@gmail.com?subject=feedback">
-            <i class="far fa-envelope fa-2x" />
+            <i className="far fa-envelope fa-2x" />
           </a>
         </div>
         <div className="Footer__Github">
@@ -20,13 +20,13 @@ function Footer() {
             href="https://github.com/kimhm93/React-portfolio-movie-app"
             target="_blink"
           >
-            <i class="fab fa-github-alt fa-2x" />
+            <i className="fab fa-github-alt fa-2x" />
           </a>
         </div>
         <div className="Footer__Blog">
           <span>Blog</span>
           <a href="https://mongtak.tistory.com/" target="_blink">
-            <i class="fas fa-blog fa-2x" />
+            <i className="fas fa-blog fa-2x" />
           </a>
         </div>
         <div className="Footer__Info">KimHakMin Portfolio</div>
