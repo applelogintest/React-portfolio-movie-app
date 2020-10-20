@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aed0b901f8abb561e109355947cedea1",
+    "revision": "dd34f528531f71e35b5f916fe41ebe92",
     "url": "/React-portfolio-movie-app/index.html"
   },
   {
-    "revision": "56b314e24eb9954597a8",
+    "revision": "24e06bf5d40bb16da3a0",
     "url": "/React-portfolio-movie-app/static/css/main.6518034c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/React-portfolio-movie-app/static/js/2.82ee2f15.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "56b314e24eb9954597a8",
-    "url": "/React-portfolio-movie-app/static/js/main.0edc5ace.chunk.js"
+    "revision": "24e06bf5d40bb16da3a0",
+    "url": "/React-portfolio-movie-app/static/js/main.c05c6f70.chunk.js"
   },
   {
     "revision": "0d541b40843ebd212c5d",
