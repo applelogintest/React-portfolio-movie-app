@@ -7,7 +7,7 @@ function Header({ handleInputSearchChange, getMovies }) {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       handleInputSearchChange(searchTerm);
-    }, 300);
+    }, 1000);
 
     return () => clearTimeout(delayDebounce);
   }, [handleInputSearchChange, searchTerm]);
