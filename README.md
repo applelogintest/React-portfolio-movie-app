@@ -231,3 +231,13 @@
 - HOME 버튼 누를시 Header의 input value 값 초기화
 
 ---
+
+# 10/20
+
+## Javascript
+
+- 검색 기능에서 맨 앞글자만 빈공백 확인하도록 변경
+
+## HTML
+
+- Footer에 있던 i 태그들의 class를 jsx 형식에 맞춰 className으로 변경
